@@ -5,6 +5,9 @@ lazy val core = (projectMatrix in file("core"))
   .enablePlugins(BindgenPlugin)
   .settings(
     name := "core",
+    libraryDependencies ++= Seq(
+      "org.typelevel" %%% "cats-effect" % "3.5.5",
+    ),
     bindgenBindings := Seq(
       Binding(
         (Compile / resourceDirectory).value / "scala-native" / "ncurses.h",

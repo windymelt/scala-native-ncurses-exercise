@@ -2,11 +2,11 @@ package example
 
 import scala.scalanative.unsafe.{*, given}
 import libncurses.all.*
-import scala.scalanative.unsigned.UInt
 import scala.util.control.Breaks
+import scala.scalanative.unsigned.{UInt, given}
 
 def NCURSES_MOUSE_MASK(b: Int, m: Long): CUnsignedInt =
-  UInt.valueOf((m << (((b) - 1) * 5)).toInt)
+  (m << (((b) - 1) * 5)).toUInt
 
 inline val KEY_MOUSE = 409
 inline val OK = 0
